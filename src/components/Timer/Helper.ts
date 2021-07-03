@@ -13,7 +13,11 @@ export const convertSecondToTime = (value: number) => {
 
   const min = Math.floor((sec - hour * 60) / 60);
 
-  const seconds = Math.floor(sec - hour * 3600 - min * 60);
+  const d = hour * 3600;
+
+  const m = min * 60;
+
+  const seconds = Math.floor(sec - d - m);
 
   return {
     hours: addZeroBeforeSingleInteger(hour),

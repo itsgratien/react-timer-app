@@ -1,12 +1,8 @@
 {
-  "name": "react-typescript",
+  "name": "timer-app",
   "version": "1.0.0",
-  "description": "React and TypeScript example starter project",
-  "keywords": [
-    "typescript",
-    "react",
-    "starter"
-  ],
+  "description": "react timer application",
+  "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
     "@iconify-icons/cil": "1.1.0",

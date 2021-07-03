@@ -38,7 +38,7 @@ const Timer = () => {
     } else {
       setAutoStart(true);
 
-      setSeconds(seconds);
+      reset();
     }
 
     return undefined;
