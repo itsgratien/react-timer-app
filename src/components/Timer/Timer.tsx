@@ -4,6 +4,7 @@ import { useTimer } from "use-timer";
 import { Icon } from "@iconify/react";
 import MediaPlayIcon from "@iconify-icons/cil/media-play";
 import PauseIcon from "@iconify-icons/cil/media-pause";
+import ResetIcon from "@iconify-icons/cil/reload";
 import { minutesToSeconds } from "date-fns";
 import { convertSecondToTime } from "./Helper";
 
@@ -12,13 +13,9 @@ const Timer = () => {
 
   const [autoStart, setAutoStart] = useState<boolean>(false);
 
-  const handleTimeOver = () => {
-    setAutoStart(false);
+  const handleTimeOver = () => setAutoStart(false);
 
-    return undefined;
-  };
-
-  const { time, reset } = useTimer({
+  const { time, pause, reset } = useTimer({
     initialTime: seconds,
     timerType: "DECREMENTAL",
     autostart: autoStart,
@@ -34,9 +31,19 @@ const Timer = () => {
     if (autoStart) {
       setAutoStart(false);
 
-      reset();
+      pause();
     } else {
       setAutoStart(true);
+    }
+
+    return undefined;
+  };
+
+  const handleRestart = () => {
+    if (seconds) {
+      setAutoStart(true);
+
+      setSeconds(seconds);
 
       reset();
     }
@@ -49,6 +56,11 @@ const Timer = () => {
   return (
     <div className="timer">
       <div className="container">
+        <div className="reload">
+          <button type="button" onClick={handleRestart}>
+            <Icon icon={ResetIcon} />
+          </button>
+        </div>
         <div className="hourMin">
           {t.hours}:{t.minutes}
         </div>

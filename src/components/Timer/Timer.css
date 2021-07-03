@@ -32,7 +32,24 @@
   justify-content: center;
   align-items: center;
 }
+.container .reload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+}
 
+.reload button {
+  outline: none;
+  border: none;
+  background: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.reload button path {
+  color: #c0bbbb;
+}
 .timer .container .hourMin {
   width: 120px;
   height: 120px;

@@ -1,2 +1,3 @@
-# react-timer-app
-Created with CodeSandbox
+# React Timer App
+
+### Screenshoot
