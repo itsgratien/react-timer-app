@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Timer.css";
 import { useTimer } from "use-timer";
+import { Icon } from "@iconify/react";
+import MediaPlayIcon from "@iconify-icons/cil/media-play";
 import {
   minutesToMilliseconds,
   millisecondsToMinutes,
@@ -34,7 +36,9 @@ const Timer = () => {
           <input type="text" placeholder="set min" />
         </div>
         <div className="play">
-          <button type="button"></button>
+          <button type="button">
+            <Icon icon={MediaPlayIcon} />
+          </button>
         </div>
       </div>
     </div>

@@ -9,6 +9,8 @@
   ],
   "main": "src/index.tsx",
   "dependencies": {
+    "@iconify-icons/cil": "1.1.0",
+    "@iconify/react": "1.1.4",
     "date-fns": "2.22.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
