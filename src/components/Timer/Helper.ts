@@ -6,22 +6,18 @@ const addZeroBeforeSingleInteger = (value: number) => {
   return `${value}`;
 };
 
-export const convertMinutesToHour = (value: number) => {
-  const minutePerHour = 60;
+export const convertSecondToTime = (value: number) => {
+  const sec = parseInt(String(value), 10);
 
-  const getHour = value / minutePerHour;
+  const hour = Math.floor(sec / 3600);
 
-  const splitHour = String(getHour).split(".");
+  const min = Math.floor((sec - hour * 60) / 60);
 
-  let remainedMinutes = 0;
+  const seconds = Math.floor(sec - hour * 3600 - min * 60);
 
-  if (splitHour.length > 1) {
-    const minutes = Number(`0.${splitHour[1]}`) * minutePerHour;
-
-    remainedMinutes = Math.floor(minutes);
-  }
-
-  return `${addZeroBeforeSingleInteger(
-    Math.floor(getHour)
-  )}h:${addZeroBeforeSingleInteger(Number(remainedMinutes))}min`;
+  return {
+    hours: addZeroBeforeSingleInteger(hour),
+    minutes: addZeroBeforeSingleInteger(min),
+    seconds: addZeroBeforeSingleInteger(seconds)
+  };
 };

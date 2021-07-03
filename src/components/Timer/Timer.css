@@ -57,13 +57,14 @@
   justify-content: center;
   font-weight: bold;
   position: relative;
+  margin-bottom: 30px;
 }
 
 .timer .container .setMin {
   height: 47px;
   width: 120px;
   position: relative;
-  margin-bottom: 27px;
+  margin-bottom: 30px;
 }
 
 .setMin input {

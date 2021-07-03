@@ -3,21 +3,14 @@ import "./Timer.css";
 import { useTimer } from "use-timer";
 import { Icon } from "@iconify/react";
 import MediaPlayIcon from "@iconify-icons/cil/media-play";
-import { minutesToSeconds, secondsToMinutes } from "date-fns";
-import { convertMinutesToHour } from "./Helper";
+import PauseIcon from "@iconify-icons/cil/media-pause";
+import { minutesToSeconds } from "date-fns";
+import { convertSecondToTime } from "./Helper";
 
 const Timer = () => {
   const [seconds, setSeconds] = useState<number>();
 
   const [autoStart, setAutoStart] = useState<boolean>(false);
-
-  const handleMilleSeconds = (e: ChangeEvent<HTMLInputElement>) => {
-    setSeconds(minutesToSeconds(Number(e.target.value)));
-  };
-
-  const handleStart = () => {
-    setAutoStart(true);
-  };
 
   const handleTimeOver = () => {
     setSeconds(0);
@@ -27,7 +20,7 @@ const Timer = () => {
     return undefined;
   };
 
-  const { time, start } = useTimer({
+  const { time, reset } = useTimer({
     initialTime: seconds,
     timerType: "DECREMENTAL",
     autostart: autoStart,
@@ -35,13 +28,33 @@ const Timer = () => {
     onTimeOver: handleTimeOver
   });
 
+  const handleMilleSeconds = (e: ChangeEvent<HTMLInputElement>) => {
+    setSeconds(minutesToSeconds(Number(e.target.value)));
+  };
+
+  const handleStart = () => {
+    if (autoStart) {
+      setAutoStart(false);
+
+      reset();
+    } else {
+      setAutoStart(true);
+
+      setSeconds(seconds);
+    }
+
+    return undefined;
+  };
+
+  const t = convertSecondToTime(time || 0);
+
   return (
     <div className="timer">
       <div className="container">
         <div className="hourMin">
-          {convertMinutesToHour(secondsToMinutes(seconds || 0))}
+          {t.hours}:{t.minutes}
         </div>
-        <div className="seconds">{time}</div>
+        <div className="seconds">{t.seconds}</div>
         <div className="setMin">
           <input
             type="number"
@@ -51,7 +64,7 @@ const Timer = () => {
         </div>
         <div className="play">
           <button type="button" onClick={handleStart}>
-            <Icon icon={MediaPlayIcon} />
+            <Icon icon={autoStart ? PauseIcon : MediaPlayIcon} />
           </button>
         </div>
       </div>
