@@ -13,8 +13,6 @@ const Timer = () => {
   const [autoStart, setAutoStart] = useState<boolean>(false);
 
   const handleTimeOver = () => {
-    setSeconds(0);
-
     setAutoStart(false);
 
     return undefined;
