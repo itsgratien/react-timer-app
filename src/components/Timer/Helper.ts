@@ -18,7 +18,7 @@ export const convertMinutesToHour = (value: number) => {
   if (splitHour.length > 1) {
     const minutes = Number(`0.${splitHour[1]}`) * minutePerHour;
 
-    remainedMinutes = minutes;
+    remainedMinutes = Math.floor(minutes);
   }
 
   return `${addZeroBeforeSingleInteger(
