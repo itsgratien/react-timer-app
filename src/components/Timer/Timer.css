@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap");
+:root {
+  --f8: #f8f8f8;
+  --main: #333333;
+  --red: #ff1c29;
+  --white: #fff;
+}
+* {
+  color: var(--white);
+  font-family: "Quicksand", sans-serif;
+}
+.timer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: var(--f8);
+  display: flex;
+  justify-content: center;
+}
+
+.timer .container {
+  position: relative;
+  width: 300px;
+  height: 480px;
+  background: var(--main);
+  border-radius: 20px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer .container .hourMin {
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  background: var(--main);
+  box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.09);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.timer .container .seconds {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background: var(--main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  position: relative;
+}
+
+.timer .container .setMin {
+  height: 47px;
+  width: 120px;
+  position: relative;
+  margin-bottom: 27px;
+}
+
+.setMin input {
+  background: none;
+  text-align: center;
+  height: 100%;
+  outline: none;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.08);
+  border: none;
+}
+
+.container .play {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background: var(--red);
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 5px 10px rgba(255, 28, 41, 0.51);
+}
+
+.play button {
+  outline: none;
+  background: none;
+  color: var(--white);
+  border: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
